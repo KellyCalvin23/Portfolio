@@ -13,9 +13,11 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#25aff4",
-                        "background-light": "#f5f7f8",
-                        "background-dark": "#101c22",
+                        "primary": "#00df82",
+                        "secondary": "#00d2ff",
+                        "obsidian": "#050505",
+                        "slate-card": "#0d1117",
+                        "background-dark": "#0a0a0a",
                     },
                     fontFamily: {
                         "display": ["Inter", "sans-serif"]
@@ -33,13 +35,14 @@
 <style>
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #050505;
         }
         .grid-bg {
-            background-image: radial-gradient(circle at 2px 2px, rgba(37, 175, 244, 0.05) 1px, transparent 0);
-            background-size: 40px 40px;
+            background-image: radial-gradient(circle at 1px 1px, rgba(0, 223, 130, 0.05) 1px, transparent 0);
+            background-size: 48px 48px;
         }
         .cyber-border {
-            border: 1px solid rgba(37, 175, 244, 0.2);
+            border: 1px solid rgba(0, 223, 130, 0.1);
         }
         .terminal-cursor::after {
             content: '_';
@@ -49,381 +52,368 @@
             from, to { opacity: 1; }
             50% { opacity: 0; }
         }
+        .neon-shadow:hover {
+            box-shadow: 0 0 20px rgba(0, 223, 130, 0.15);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to bottom, rgba(0, 223, 130, 0), rgba(0, 223, 130, 0.2), rgba(0, 223, 130, 0));
+            opacity: 0.1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            from { top: 0; }
+            to { top: 100%; }
+        }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 selection:bg-primary/30">
+<body class="bg-obsidian text-slate-300 selection:bg-primary/30">
 <!-- Navigation -->
-<header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<header class="fixed top-0 z-50 w-full border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
 <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 <div class="flex items-center gap-2 group cursor-pointer">
-<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">KK<span class="text-primary">.</span>Security</span>
+<span class="text-xl font-black tracking-tighter text-white">KK<span class="text-primary">.</span>SEC</span>
 </div>
 <nav class="hidden md:flex items-center gap-8">
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#about">About</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#expertise">Expertise</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#projects">Projects</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#research">Research</a>
+<a class="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors" href="#about">About</a>
+<a class="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors" href="#expertise">Expertise</a>
+<a class="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors" href="#projects">Projects</a>
+<a class="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors" href="#contact">Contact</a>
 </nav>
 <div class="flex items-center gap-4">
-<a class="hidden sm:flex items-center justify-center rounded-lg bg-primary px-5 py-2 text-sm font-bold text-background-dark hover:bg-primary/90 transition-all" href="#contact">
-                Contact Me
-            </a>
-<div class="size-10 rounded-full border border-primary/20 bg-cover bg-center" data-alt="Professional portrait avatar placeholder" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCCbK9QtqgcNa7zEeCdQSrekwZERelLT-Q14CBLf9Xg5q1Y3crSs7xNbH2W_neDAtd8q551Hp9bws9a1Any3bloqu-_LXow4kaH3qpSWtdLA0V5ivNDSYeWJRGnfZfMOe5L1qeQ1Aifc1_5A0yaGEaT0Epy1z7W23UriLT0CuoqDCv_1FZXlOczg6hxjDuRMs9cYfQQN-toaqkobQhw8U-gi3JV0RKKSAg_W7mBr1J7ZYGNs3-bFJ_QHyDnFisxN8adPcdyMVnUkFVA');"></div>
+<div class="size-8 rounded-full border border-primary/40 bg-cover bg-center overflow-hidden">
+<img alt="Kelly Kayinamura" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCbK9QtqgcNa7zEeCdQSrekwZERelLT-Q14CBLf9Xg5q1Y3crSs7xNbH2W_neDAtd8q551Hp9bws9a1Any3bloqu-_LXow4kaH3qpSWtdLA0V5ivNDSYeWJRGnfZfMOe5L1qeQ1Aifc1_5A0yaGEaT0Epy1z7W23UriLT0CuoqDCv_1FZXlOczg6hxjDuRMs9cYfQQN-toaqkobQhw8U-gi3JV0RKKSAg_W7mBr1J7ZYGNs3-bFJ_QHyDnFisxN8adPcdyMVnUkFVA"/>
+</div>
 </div>
 </div>
 </header>
 <main class="grid-bg">
-<!-- Hero Section (Whoami Style) -->
-<section class="relative pt-20 pb-16 lg:pt-32 lg:pb-32 px-6">
-<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-<div class="flex flex-col gap-8">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest w-fit">
-<span class="relative flex h-2 w-2">
-<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-</span>
-                    System Status: Secure
-                </div>
-<div class="flex flex-col gap-4 font-mono">
-<div class="flex items-center gap-2 text-primary/60 text-lg">
-<span>$</span>
-<span>whoami</span>
-</div>
-<h1 class="text-5xl lg:text-7xl font-black leading-tight tracking-tight text-slate-900 dark:text-slate-100">Kelly <span class="text-primary">Kayinamura</span></h1>
-<div class="text-xl lg:text-2xl font-bold text-slate-700 dark:text-slate-300">
-                        System Security Engineer
-                    </div>
-<p class="text-lg text-slate-600 dark:text-slate-400 max-w-xl font-sans leading-relaxed">
-                        Defending infrastructure through advanced SIEM architecture, real-time threat detection, DFIR methodologies, and robust security automation workflows. I build the systems that break the attack chain.
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 px-6 overflow-hidden">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center w-full">
+<div class="flex flex-col gap-8 reveal">
+<div class="flex flex-col gap-4">
+<span class="text-primary font-mono text-sm tracking-[0.3em] uppercase">Security Operations Center // Active</span>
+<h1 class="text-7xl lg:text-8xl font-black tracking-tight text-white leading-none">
+                        Kelly <br/>Kayinamura
+                    </h1>
+<p class="text-2xl font-light text-slate-400 max-w-lg">
+                        System Security Engineer architecting <span class="text-white font-medium italic">resilient infrastructure</span> and automated defense systems.
                     </p>
 </div>
-<div class="flex flex-wrap gap-4">
-<button class="px-8 py-4 bg-primary text-background-dark font-bold rounded-lg hover:translate-y-[-2px] transition-all shadow-lg shadow-primary/20">
-                        View Projects
-                    </button>
-<button class="px-8 py-4 bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white font-bold rounded-lg hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">
-                        Download CV
-                    </button>
+<div class="flex items-center gap-6">
+<a class="px-8 py-3 bg-white text-obsidian font-bold rounded-full hover:bg-primary transition-all flex items-center gap-2 group" href="#">
+                        Resume
+                        <span class="material-symbols-outlined text-lg group-hover:translate-y-0.5 transition-transform">download</span>
+</a>
+<div class="flex gap-4">
+<a class="size-11 rounded-full border border-white/10 flex items-center justify-center hover:border-primary/50 transition-all text-slate-400 hover:text-primary" href="#">
+<svg class="size-5 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+<a class="size-11 rounded-full border border-white/10 flex items-center justify-center hover:border-primary/50 transition-all text-slate-400 hover:text-primary" href="#">
+<svg class="size-5 fill-current" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+</a>
 </div>
 </div>
-<div class="relative">
-<div class="aspect-video w-full rounded-xl overflow-hidden cyber-border shadow-2xl shadow-primary/10 bg-slate-950 flex flex-col p-4">
+</div>
+<div class="relative reveal delay-200">
+<div class="aspect-[4/3] w-full rounded-2xl overflow-hidden border border-white/5 bg-slate-900 shadow-[0_0_50px_rgba(0,223,130,0.05)] relative">
+<div class="scanline"></div>
 <!-- Terminal Header -->
-<div class="flex items-center gap-1.5 mb-4 border-b border-white/5 pb-2">
-<div class="size-2.5 rounded-full bg-red-500/50"></div>
-<div class="size-2.5 rounded-full bg-yellow-500/50"></div>
-<div class="size-2.5 rounded-full bg-green-500/50"></div>
-<span class="text-[10px] text-slate-500 ml-2 font-mono uppercase tracking-widest">secure-shell — 80×24</span>
+<div class="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5">
+<div class="flex items-center gap-2">
+<div class="size-2.5 rounded-full bg-red-500/30"></div>
+<div class="size-2.5 rounded-full bg-yellow-500/30"></div>
+<div class="size-2.5 rounded-full bg-green-500/30"></div>
+</div>
+<span class="text-[10px] text-slate-500 font-mono font-bold tracking-widest uppercase">root@system-sec — bash</span>
 </div>
 <!-- Simulated Terminal Content -->
-<div class="w-full h-full font-mono text-sm text-primary/90 overflow-hidden leading-relaxed"><span class="text-green-400">kelly@k-sec</span>:<span class="text-blue-400">~</span>$ ./system-scan.sh<br/>
-                        [INFO] Initializing Wazuh Agent...<br/>
-                        [OK] Connection established with Manager<br/>
-                        [INFO] Monitoring /var/log/auth.log<br/>
-                        [ALERT] Suspicious SSH login attempt detected from 192.168.1.45<br/>
-                        [ACTION] Triggering Shuffle SOAR workflow...<br/>
-                        [INFO] IP blacklisted via Cloudflare API<br/>
-                        [OK] Incident logged in DFIR-IRIS<br/>
-<span class="text-green-400">kelly@k-sec</span>:<span class="text-blue-400">~</span>$ <span class="terminal-cursor"></span></div>
+<div class="p-6 font-mono text-sm leading-relaxed">
+<div class="flex gap-2">
+<span class="text-primary">➜</span>
+<span class="text-secondary">~</span>
+<span class="text-white">whoami</span>
 </div>
-<!-- Decorative Elements -->
-<div class="absolute -top-4 -right-4 size-24 bg-primary/10 blur-3xl rounded-full"></div>
-<div class="absolute -bottom-4 -left-4 size-32 bg-primary/5 blur-3xl rounded-full"></div>
+<div class="text-slate-400 mb-4">Kelly Kayinamura / Engineer / Problem Solver</div>
+<div class="flex gap-2">
+<span class="text-primary">➜</span>
+<span class="text-secondary">~</span>
+<span class="text-white">./status.sh</span>
+</div>
+<div class="mt-2 space-y-1">
+<div class="flex items-center gap-3">
+<span class="text-slate-600">[info]</span>
+<span class="text-slate-300">Wazuh Manager: Active</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-slate-600">[info]</span>
+<span class="text-slate-300">Suricata IDS: Filtering</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-primary">[alert]</span>
+<span class="text-white font-bold italic animate-pulse">Intrusion Attempt Prevented at Edge</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-slate-600">[info]</span>
+<span class="text-slate-300">Shuffle SOAR: Executing Containment</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-green-500">[ok]</span>
+<span class="text-slate-300">System Integrity: 100% Verified</span>
+</div>
+</div>
+<div class="flex gap-2 mt-4">
+<span class="text-primary">➜</span>
+<span class="text-secondary">~</span>
+<span class="terminal-cursor text-white"></span>
+</div>
+</div>
+</div>
+<!-- Abstract Glow -->
+<div class="absolute -top-20 -right-20 size-80 bg-primary/10 blur-[100px] rounded-full"></div>
+<div class="absolute -bottom-20 -left-20 size-60 bg-secondary/10 blur-[80px] rounded-full"></div>
 </div>
 </div>
 </section>
 <!-- About Section -->
-<section class="py-20 px-6 border-y border-primary/5 bg-slate-50/50 dark:bg-slate-900/30" id="about">
-<div class="max-w-4xl mx-auto text-center">
-<h2 class="text-3xl font-bold mb-8 text-slate-900 dark:text-slate-100">The Mission</h2>
-<p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-10">
-                I am a professional security engineer dedicated to building scalable defensive solutions. My approach blends deep technical expertise with a hacker's mindset, honed through intense CTF competitions and years of real-world infrastructure hardening. I focus on automating the mundane to empower the meaningful—ensuring that incident response is measured in seconds, not hours.
+<section class="py-32 px-6" id="about">
+<div class="max-w-4xl mx-auto text-center reveal">
+<h2 class="text-xs font-bold uppercase tracking-[0.5em] text-primary mb-8">The Mission</h2>
+<p class="text-3xl md:text-4xl font-light text-white leading-tight mb-16 italic">
+                "Defending infrastructure through precise engineering, real-time intelligence, and a philosophy of 
+                <span class="text-primary font-bold">continuous automation</span>."
             </p>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-<div class="p-4 rounded-lg bg-white dark:bg-slate-800 cyber-border">
-<div class="text-2xl font-black text-primary mb-1">5+</div>
-<div class="text-xs uppercase tracking-wider text-slate-500 font-bold">Years Experience</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+<div>
+<div class="text-4xl font-black text-white mb-2">5+</div>
+<div class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Years Obsessed</div>
 </div>
-<div class="p-4 rounded-lg bg-white dark:bg-slate-800 cyber-border">
-<div class="text-2xl font-black text-primary mb-1">50+</div>
-<div class="text-xs uppercase tracking-wider text-slate-500 font-bold">CTFs Completed</div>
+<div>
+<div class="text-4xl font-black text-white mb-2">50+</div>
+<div class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">CTF Campaigns</div>
 </div>
-<div class="p-4 rounded-lg bg-white dark:bg-slate-800 cyber-border">
-<div class="text-2xl font-black text-primary mb-1">120+</div>
-<div class="text-xs uppercase tracking-wider text-slate-500 font-bold">Threat Hunts</div>
+<div>
+<div class="text-4xl font-black text-white mb-2">120+</div>
+<div class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Threat Hunts</div>
 </div>
-<div class="p-4 rounded-lg bg-white dark:bg-slate-800 cyber-border">
-<div class="text-2xl font-black text-primary mb-1">12</div>
-<div class="text-xs uppercase tracking-wider text-slate-500 font-bold">Certifications</div>
+<div>
+<div class="text-4xl font-black text-white mb-2">12</div>
+<div class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Hardened Certs</div>
 </div>
 </div>
 </div>
 </section>
-<!-- Expertise Grid -->
-<section class="py-24 px-6" id="expertise">
+<!-- Technical Expertise -->
+<section class="py-32 px-6 bg-white/[0.01]" id="expertise">
 <div class="max-w-7xl mx-auto">
-<div class="flex flex-col items-center mb-16 gap-4">
-<h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Technical Expertise</h2>
-<div class="h-1 w-20 bg-primary rounded-full"></div>
+<div class="flex flex-col mb-20 gap-4 reveal">
+<span class="text-xs font-bold tracking-[0.3em] text-primary uppercase">Specializations</span>
+<h2 class="text-5xl font-black text-white">Strategic Domains</h2>
 </div>
-<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-1">
 <!-- Expertise Item -->
-<div class="group p-8 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-all hover:translate-y-[-4px]">
-<span class="material-symbols-outlined text-4xl text-primary mb-6">visibility</span>
-<h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-slate-100">SIEM (Wazuh)</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                        Deployment and tuning of Wazuh managers for real-time visibility and log analysis across hybrid cloud environments.
-                    </p>
+<div class="group p-10 bg-obsidian border border-white/5 hover:border-primary/30 transition-all hover:bg-slate-900/40 reveal">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-obsidian transition-colors">visibility</span>
 </div>
-<div class="group p-8 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-all hover:translate-y-[-4px]">
-<span class="material-symbols-outlined text-4xl text-primary mb-6">biotech</span>
-<h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-slate-100">DFIR &amp; Response</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                        Advanced incident case management with DFIR-IRIS, forensic artifact analysis, and rapid recovery orchestration.
-                    </p>
+<h3 class="text-xl font-black mb-4 text-white">SIEM &amp; Log Analysis</h3>
+<p class="text-slate-500 text-sm leading-relaxed">Centralizing visibility through enterprise-grade log orchestration and anomaly detection engines.</p>
 </div>
-<div class="group p-8 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-all hover:translate-y-[-4px]">
-<span class="material-symbols-outlined text-4xl text-primary mb-6">hub</span>
-<h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-slate-100">Threat Intelligence</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                        Integration of OpenCTI and MISP feeds to contextualize security events and provide actionable intel.
-                    </p>
+<div class="group p-10 bg-obsidian border border-white/5 hover:border-primary/30 transition-all hover:bg-slate-900/40 reveal delay-100">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-obsidian transition-colors">biotech</span>
 </div>
-<div class="group p-8 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-all hover:translate-y-[-4px]">
-<span class="material-symbols-outlined text-4xl text-primary mb-6">bolt</span>
-<h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-slate-100">SOAR Automation</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                        Building complex workflows in Shuffle to automate blocklists, alerting, and containment procedures.
-                    </p>
+<h3 class="text-xl font-black mb-4 text-white">DFIR &amp; Response</h3>
+<p class="text-slate-500 text-sm leading-relaxed">Rapid forensic investigations and incident orchestration to neutralize threats before they escalate.</p>
 </div>
-<div class="group p-8 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-all hover:translate-y-[-4px]">
-<span class="material-symbols-outlined text-4xl text-primary mb-6">cloud_done</span>
-<h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-slate-100">Cloud &amp; Virtualization</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                        Hardening Proxmox hypervisors and Azure environments with zero-trust principles and identity management.
-                    </p>
+<div class="group p-10 bg-obsidian border border-white/5 hover:border-primary/30 transition-all hover:bg-slate-900/40 reveal delay-200">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-obsidian transition-colors">hub</span>
 </div>
-<div class="group p-8 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-all hover:translate-y-[-4px]">
-<span class="material-symbols-outlined text-4xl text-primary mb-6">lan</span>
-<h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-slate-100">Network Security</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                        Architecting secure topologies, micro-segmentation, and deep packet inspection for lateral movement detection.
-                    </p>
+<h3 class="text-xl font-black mb-4 text-white">Threat Intelligence</h3>
+<p class="text-slate-500 text-sm leading-relaxed">Contextualizing raw data into actionable intelligence via OpenCTI and STIX/TAXII integrations.</p>
+</div>
+<div class="group p-10 bg-obsidian border border-white/5 hover:border-primary/30 transition-all hover:bg-slate-900/40 reveal">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-obsidian transition-colors">bolt</span>
+</div>
+<h3 class="text-xl font-black mb-4 text-white">SOAR Automation</h3>
+<p class="text-slate-500 text-sm leading-relaxed">Designing complex playbooks that automate the reactive heavy lifting of security operations.</p>
+</div>
+<div class="group p-10 bg-obsidian border border-white/5 hover:border-primary/30 transition-all hover:bg-slate-900/40 reveal delay-100">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-obsidian transition-colors">security</span>
+</div>
+<h3 class="text-xl font-black mb-4 text-white">Penetration Testing</h3>
+<p class="text-slate-500 text-sm leading-relaxed">Offensive security assessments to identify vulnerabilities before adversaries can exploit them.</p>
+</div>
+<div class="group p-10 bg-obsidian border border-white/5 hover:border-primary/30 transition-all hover:bg-slate-900/40 reveal delay-200">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-obsidian transition-colors">lan</span>
+</div>
+<h3 class="text-xl font-black mb-4 text-white">Network Security</h3>
+<p class="text-slate-500 text-sm leading-relaxed">Hardening network boundaries with zero-trust architectures and deep traffic inspection.</p>
 </div>
 </div>
 </div>
 </section>
 <!-- Project Gallery -->
-<section class="py-24 px-6 bg-slate-50 dark:bg-slate-900/40" id="projects">
+<section class="py-32 px-6" id="projects">
 <div class="max-w-7xl mx-auto">
-<div class="flex justify-between items-end mb-16">
+<div class="flex justify-between items-end mb-20 reveal">
 <div class="flex flex-col gap-4">
-<h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Featured Projects</h2>
-<div class="h-1 w-20 bg-primary rounded-full"></div>
+<span class="text-xs font-bold tracking-[0.3em] text-primary uppercase">Field Reports</span>
+<h2 class="text-5xl font-black text-white">Featured Projects</h2>
 </div>
-<a class="text-primary font-bold hover:underline flex items-center gap-1" href="#">
-                    View All <span class="material-symbols-outlined">arrow_right_alt</span>
+<a class="text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-2 group" href="#">
+                    Archive <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
 </a>
 </div>
-<div class="grid md:grid-cols-2 gap-8">
-<!-- Project Card -->
-<div class="flex flex-col group cursor-pointer overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all">
-<div class="h-64 bg-cover bg-center overflow-hidden" data-alt="Screenshot of a complex SIEM dashboard showing graphs and alerts" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMzC24Bjd-2-Ojbin3GOSy4KX9bN7pGK7ym-dQgOXri3Ip3va0izT0icNXRQVhfXCDibIS7-ZyL0mA-hXMzb5GSrXSgxFQ3c8kwfXnXTjTKXotnGk0RKebNlRECxawtQ2MGcqzZn_0IDS4kIr6lyqoFWUFpRicX0jH5Fp2WdVlbXFCYzepeHh-nuCQGaxWqAUkfSGr5H-oIGWqKktHIF9FACQzzG3OTJSvoDAy2-qPjwdNiESeE6OizKYs2HbW_f1cNJIz5odA_u4F');">
-<div class="w-full h-full bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
-<button class="bg-primary text-background-dark px-6 py-2 rounded-lg font-bold">Case Study</button>
+<div class="space-y-32">
+<!-- Project 1 -->
+<div class="grid lg:grid-cols-2 gap-16 items-center reveal">
+<div class="relative group cursor-pointer overflow-hidden rounded-2xl border border-white/10 aspect-video">
+<img alt="Wazuh SIEM" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMzC24Bjd-2-Ojbin3GOSy4KX9bN7pGK7ym-dQgOXri3Ip3va0izT0icNXRQVhfXCDibIS7-ZyL0mA-hXMzb5GSrXSgxFQ3c8kwfXnXTjTKXotnGk0RKebNlRECxawtQ2MGcqzZn_0IDS4kIr6lyqoFWUFpRicX0jH5Fp2WdVlbXFCYzepeHh-nuCQGaxWqAUkfSGr5H-oIGWqKktHIF9FACQzzG3OTJSvoDAy2-qPjwdNiESeE6OizKYs2HbW_f1cNJIz5odA_u4F"/>
+<div class="absolute inset-0 bg-obsidian/40 group-hover:bg-transparent transition-colors"></div>
 </div>
+<div class="flex flex-col gap-6">
+<div class="flex gap-4">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest border border-primary/20">Wazuh SIEM</span>
+<span class="px-3 py-1 bg-white/5 text-slate-400 text-[10px] font-bold uppercase tracking-widest border border-white/10">Detection Engineering</span>
 </div>
-<div class="p-8">
-<div class="flex gap-2 mb-4">
-<span class="px-2 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase">Wazuh</span>
-<span class="px-2 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase">OpenCTI</span>
-</div>
-<h3 class="text-2xl font-bold mb-3 group-hover:text-primary transition-colors text-slate-900 dark:text-slate-100">Wazuh SIEM Deployment</h3>
-<p class="text-slate-600 dark:text-slate-400 mb-6">
-                            End-to-end deployment of an enterprise SIEM integrating OpenCTI for real-time indicator enrichment and automated alerting.
+<h3 class="text-4xl font-black text-white">Full-Stack SIEM Orchestration</h3>
+<p class="text-lg text-slate-400 leading-relaxed">
+                            Engineered an enterprise detection ecosystem integrating Wazuh with OpenCTI. Developed custom Python middleware to bridge real-time indicators with active log streams, reducing false positives by 65%.
                         </p>
-<div class="flex items-center gap-4 text-xs font-mono text-slate-400">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">terminal</span> Bash / Python</span>
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">settings</span> Docker Desktop</span>
+<div class="flex items-center gap-8 text-xs font-mono font-bold uppercase text-slate-500">
+<span class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-primary"></span> Python</span>
+<span class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-primary"></span> Docker</span>
+<span class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-primary"></span> Linux</span>
 </div>
 </div>
 </div>
-<!-- Project Card -->
-<div class="flex flex-col group cursor-pointer overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all">
-<div class="h-64 bg-cover bg-center overflow-hidden" data-alt="Digital representation of incident response workflow on a computer screen" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAxGc6wIpzVKcyBXXi7HNY1c7r-FgaLjQv0pNBnIKaSCRJ34-C7CmhlpKEn8M9ag_zPBJLQC5Qbu44p-mxaAEvseqDcKrhZY_tcqd6R-mF4FLyv1TGKMWBnhOtc9pvVnSapBAgQVWrX8stpNP7VP2TX2hoPrWQJAsFPHhIj2bYFdab5hb8tDvchUOssbvaqtFG_wsNesv5yl_ZZnQoO4B78xRblavQ_pgYqZ8nHDsoBse-jq1djY-y2eIIerpZHJgGBIBzkfvc1J-3H');">
-<div class="w-full h-full bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
-<button class="bg-primary text-background-dark px-6 py-2 rounded-lg font-bold">Case Study</button>
+<!-- Project 2 -->
+<div class="grid lg:grid-cols-2 gap-16 items-center reveal">
+<div class="lg:order-2 relative group cursor-pointer overflow-hidden rounded-2xl border border-white/10 aspect-video">
+<img alt="DFIR IRIS" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxGc6wIpzVKcyBXXi7HNY1c7r-FgaLjQv0pNBnIKaSCRJ34-C7CmhlpKEn8M9ag_zPBJLQC5Qbu44p-mxaAEvseqDcKrhZY_tcqd6R-mF4FLyv1TGKMWBnhOtc9pvVnSapBAgQVWrX8stpNP7VP2TX2hoPrWQJAsFPHhIj2bYFdab5hb8tDvchUOssbvaqtFG_wsNesv5yl_ZZnQoO4B78xRblavQ_pgYqZ8nHDsoBse-jq1djY-y2eIIerpZHJgGBIBzkfvc1J-3H"/>
+<div class="absolute inset-0 bg-obsidian/40 group-hover:bg-transparent transition-colors"></div>
 </div>
+<div class="lg:order-1 flex flex-col gap-6">
+<div class="flex gap-4">
+<span class="px-3 py-1 bg-secondary/10 text-secondary text-[10px] font-bold uppercase tracking-widest border border-secondary/20">DFIR-IRIS</span>
+<span class="px-3 py-1 bg-white/5 text-slate-400 text-[10px] font-bold uppercase tracking-widest border border-white/10">Incident Response</span>
 </div>
-<div class="p-8">
-<div class="flex gap-2 mb-4">
-<span class="px-2 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase">DFIR-IRIS</span>
-<span class="px-2 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase">Automation</span>
-</div>
-<h3 class="text-2xl font-bold mb-3 group-hover:text-primary transition-colors text-slate-900 dark:text-slate-100">DFIR-IRIS Orchestration</h3>
-<p class="text-slate-600 dark:text-slate-400 mb-6">
-                            Streamlining the investigative process by connecting IRIS to automated data collection scripts, reducing MTTR by 40%.
+<h3 class="text-4xl font-black text-white">Automated IR Workflows</h3>
+<p class="text-lg text-slate-400 leading-relaxed">
+                            Deployment of the IRIS case management platform integrated with automated enrichment scripts. Streamlined the entire forensic lifecycle from initial ingestion to final report generation.
                         </p>
-<div class="flex items-center gap-4 text-xs font-mono text-slate-400">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">storage</span> PostgreSQL</span>
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">cloud</span> AWS S3</span>
+<div class="flex items-center gap-8 text-xs font-mono font-bold uppercase text-slate-500">
+<span class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-secondary"></span> API Integration</span>
+<span class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-secondary"></span> Bash</span>
+<span class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-secondary"></span> SQL</span>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- Experience/Impact -->
-<section class="py-24 px-6">
-<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-<div class="relative rounded-2xl overflow-hidden cyber-border aspect-square" data-alt="Technical workspace with multiple monitors and code" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBO1XKge6pxJNGRqLC7h1aZHfQ7TKWswZTkw4BkGxPKvRNNEKj0v8VgIxl_gb7YDQzCbt9Sg2PoC6gMjT7LzNKG2zyO2aoCmNTZADMgL3EFmwIOL1Eh6qC4cgpO2x9PL9hupTvKD8R85csZPxd-cEhrKACBG49Cb-dgNcvpe8ahyQZzEg8KLlaR6w9NTBq9GToG_-lJ0UC4qNTuIR1WbXN-i0WSwqWHtjilLgIsCYrONsMPKEup9Jm2041VKPEZuRIu7-tPWclAc4iv');">
-<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
-<div class="absolute bottom-8 left-8">
-<p class="text-primary text-sm font-bold tracking-widest uppercase mb-2">Live Environment</p>
-<h4 class="text-2xl font-bold text-white">Daily Operations</h4>
+<!-- Contact -->
+<section class="py-32 px-6 border-t border-white/5" id="contact">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20">
+<div class="flex flex-col gap-10 reveal">
+<div class="flex flex-col gap-4">
+<span class="text-xs font-bold tracking-[0.3em] text-primary uppercase">Signal</span>
+<h2 class="text-6xl font-black text-white tracking-tight">Open for Transmission.</h2>
+</div>
+<p class="text-xl text-slate-500 leading-relaxed">
+                    Available for strategic security consultations, infrastructure hardening audits, and high-impact engineering roles.
+                </p>
+<div class="flex flex-col gap-6 text-white font-medium">
+<a class="flex items-center gap-4 hover:text-primary transition-colors group" href="mailto:kayinamurakelly@gmail.com">
+<span class="size-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-xl">mail</span>
+</span>
+                        kayinamurakelly@gmail.com
+                    </a>
+<a class="flex items-center gap-4 hover:text-primary transition-colors group" href="tel:+250783000416">
+<span class="size-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-xl">call</span>
+</span>
+                        +250783000416
+                    </a>
 </div>
 </div>
-<div class="flex flex-col gap-8">
-<h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100">Protecting Systems in <br/><span class="text-primary">Real-Time</span></h2>
-<div class="space-y-6">
-<div class="flex gap-4">
-<div class="size-10 shrink-0 rounded-lg bg-primary/10 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary">analytics</span>
+<div class="reveal delay-200">
+<form class="bg-slate-card p-10 rounded-2xl border border-white/5 flex flex-col gap-6 shadow-2xl">
+<div class="grid md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Name</label>
+<input class="bg-obsidian border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-primary outline-none focus:border-transparent transition-all" type="text"/>
 </div>
-<div>
-<h4 class="text-lg font-bold text-slate-900 dark:text-slate-100">Continuous Monitoring</h4>
-<p class="text-slate-600 dark:text-slate-400 text-sm">Managing a fleet of 500+ endpoints, ensuring compliance and visibility across distributed networks.</p>
-</div>
-</div>
-<div class="flex gap-4">
-<div class="size-10 shrink-0 rounded-lg bg-primary/10 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary">emergency_home</span>
-</div>
-<div>
-<h4 class="text-lg font-bold text-slate-900 dark:text-slate-100">Incident Leadership</h4>
-<p class="text-slate-600 dark:text-slate-400 text-sm">Spearheading triage and remediation for high-severity security incidents, from ransomeware prevention to APT detection.</p>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Email</label>
+<input class="bg-obsidian border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-primary outline-none focus:border-transparent transition-all" type="email"/>
 </div>
 </div>
-<div class="flex gap-4">
-<div class="size-10 shrink-0 rounded-lg bg-primary/10 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary">architecture</span>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Subject</label>
+<input class="bg-obsidian border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-primary outline-none focus:border-transparent transition-all" type="text"/>
 </div>
-<div>
-<h4 class="text-lg font-bold text-slate-900 dark:text-slate-100">Infrastructure as Code</h4>
-<p class="text-slate-600 dark:text-slate-400 text-sm">Automating security baseline deployments using Terraform and Ansible to eliminate configuration drift.</p>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Message</label>
+<textarea class="bg-obsidian border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-primary outline-none focus:border-transparent transition-all" rows="5"></textarea>
 </div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Certifications & Research -->
-<section class="py-24 px-6 border-t border-primary/10">
-<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24">
-<!-- Certs -->
-<div>
-<h3 class="text-2xl font-bold mb-10 flex items-center gap-3 text-slate-900 dark:text-slate-100">
-<span class="material-symbols-outlined text-primary">verified</span> Certifications
-                </h3>
-<div class="space-y-4">
-<div class="flex items-center justify-between p-4 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-800">
-<span class="font-medium text-slate-900 dark:text-slate-100">OSCP - Offensive Security Certified Professional</span>
-<span class="text-xs text-slate-500 font-mono">2023</span>
-</div>
-<div class="flex items-center justify-between p-4 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-800">
-<span class="font-medium text-slate-900 dark:text-slate-100">CISSP - Information Systems Security</span>
-<span class="text-xs text-slate-500 font-mono">2022</span>
-</div>
-<div class="flex items-center justify-between p-4 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-800">
-<span class="font-medium text-slate-900 dark:text-slate-100">CompTIA Security+ SYO-601</span>
-<span class="text-xs text-slate-500 font-mono">2021</span>
-</div>
-<div class="flex items-center justify-between p-4 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-800">
-<span class="font-medium text-slate-900 dark:text-slate-100">AZ-500: Azure Security Engineer</span>
-<span class="text-xs text-slate-500 font-mono">2022</span>
-</div>
-</div>
-</div>
-<!-- Research/Blog -->
-<div id="research">
-<h3 class="text-2xl font-bold mb-10 flex items-center gap-3 text-slate-900 dark:text-slate-100">
-<span class="material-symbols-outlined text-primary">menu_book</span> Latest Research
-                </h3>
-<div class="space-y-8">
-<article class="group">
-<time class="text-xs text-primary font-mono mb-2 block tracking-widest uppercase">October 14, 2023</time>
-<h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors cursor-pointer text-slate-900 dark:text-slate-100">Detecting Lateral Movement in Proxmox Clusters</h4>
-<p class="text-sm text-slate-600 dark:text-slate-400">Analysis of kernel-level logging to identify unauthorized inter-VM traffic within KVM/QEMU environments...</p>
-</article>
-<article class="group">
-<time class="text-xs text-primary font-mono mb-2 block tracking-widest uppercase">August 29, 2023</time>
-<h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors cursor-pointer text-slate-900 dark:text-slate-100">Automating IOC Enrichment with Python &amp; OpenCTI</h4>
-<p class="text-sm text-slate-600 dark:text-slate-400">Building a bridge between disparate threat feeds and SIEM alert metadata for context-aware defense...</p>
-</article>
-</div>
+<button class="w-full bg-primary text-obsidian font-black py-4 rounded-lg hover:bg-white transition-all uppercase tracking-widest text-sm">
+                        Initialize Transmission
+                    </button>
+</form>
 </div>
 </div>
 </section>
 </main>
-<!-- Footer / Contact -->
-<footer class="bg-slate-100 dark:bg-slate-950 border-t border-primary/10 pt-20 pb-10 px-6" id="contact">
-<div class="max-w-7xl mx-auto">
-<div class="grid md:grid-cols-2 gap-12 mb-20">
-<div class="flex flex-col gap-6">
-<h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100">Ready to secure <br/>your architecture?</h2>
-<p class="text-slate-600 dark:text-slate-400">Currently open to consulting projects and high-impact full-time roles in Security Operations and Engineering.</p>
-<div class="flex flex-col gap-2 mb-4 text-slate-600 dark:text-slate-400">
-<a class="flex items-center gap-2 hover:text-primary transition-colors" href="mailto:kayinamurakelly@gmail.com">
-<span class="material-symbols-outlined text-sm">mail</span>
-        kayinamurakelly@gmail.com
-    </a>
-<a class="flex items-center gap-2 hover:text-primary transition-colors" href="tel:+250783000416">
-<span class="material-symbols-outlined text-sm">call</span>
-        +250783000416
-    </a>
-</div><div class="flex gap-4">
-<a class="size-12 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/20 hover:bg-primary hover:text-background-dark transition-all" href="#">
-<svg class="size-6 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
-</a>
-<a class="size-12 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/20 hover:bg-primary hover:text-background-dark transition-all" href="#">
-<svg class="size-6 fill-current" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
-</a>
-<a class="size-12 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/20 hover:bg-primary hover:text-background-dark transition-all" href="#">
-<span class="material-symbols-outlined text-2xl">mail</span>
-</a>
+<footer class="bg-obsidian border-t border-white/5 py-12 px-6">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col gap-2">
+<span class="text-lg font-black tracking-tighter text-white">KK<span class="text-primary">.</span>SEC</span>
+<p class="text-[10px] uppercase tracking-[0.2em] text-slate-600 font-bold">© 2023 KELLY KAYINAMURA • ALL RIGHTS RESERVED</p>
 </div>
-</div>
-<div class="bg-white dark:bg-slate-900 rounded-xl p-8 cyber-border shadow-xl">
-<div class="flex flex-col gap-2 mb-4 text-slate-600 dark:text-slate-400">
-<a class="flex items-center gap-2 hover:text-primary transition-colors" href="mailto:kayinamurakelly@gmail.com">
-<span class="material-symbols-outlined text-sm">mail</span>
-        kayinamurakelly@gmail.com
-    </a>
-<a class="flex items-center gap-2 hover:text-primary transition-colors" href="tel:+250783000416">
-<span class="material-symbols-outlined text-sm">call</span>
-        +250783000416
-    </a>
-</div><form action="mailto:kayinamurakelly@gmail.com" class="flex flex-col gap-4" enctype="text/plain" method="post">
-<div class="grid md:grid-cols-2 gap-4">
-<input class="bg-slate-100 dark:bg-slate-800 border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary outline-none" placeholder="Name" type="text"/>
-<input class="bg-slate-100 dark:bg-slate-800 border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary outline-none" placeholder="Email" type="email"/>
-</div>
-<input class="bg-slate-100 dark:bg-slate-800 border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary outline-none" placeholder="Subject" type="text"/>
-<textarea class="bg-slate-100 dark:bg-slate-800 border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary outline-none" placeholder="Message" rows="4"></textarea>
-<button class="bg-primary text-background-dark font-bold py-3 rounded-lg hover:bg-primary/90 transition-all">Send Transmission</button>
-</form>
-</div>
-</div>
-<div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-slate-200 dark:border-slate-800">
-<div class="flex items-center gap-2">
-<span class="text-sm font-bold tracking-tight text-slate-500">© 2023 Kelly Kayinamura Engineering</span>
-</div>
-<div class="flex gap-8 text-xs font-bold uppercase tracking-widest text-slate-500">
-<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
-<a class="hover:text-primary transition-colors" href="#">Security Ethics</a>
-<a class="hover:text-primary transition-colors" href="#">Open Source</a>
-</div>
+<div class="flex gap-10">
+<a class="text-[10px] font-bold uppercase tracking-widest text-slate-500 hover:text-primary transition-colors" href="#">Security Ethics</a>
+<a class="text-[10px] font-bold uppercase tracking-widest text-slate-500 hover:text-primary transition-colors" href="#">System Architecture</a>
+<a class="text-[10px] font-bold uppercase tracking-widest text-slate-500 hover:text-primary transition-colors" href="#">Contact Hub</a>
 </div>
 </div>
 </footer>
+<script>
+    // Simple reveal animation on scroll
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    // Initial check
+    reveal();
+</script>
 </body></html>
