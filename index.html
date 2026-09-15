@@ -183,7 +183,7 @@
             });
 
             navLinks.forEach(link => {
-                link.addEventListener("click", function() {
+                link.addEventListener("click", function () {
                     navLinks.forEach((l) => l.classList.remove("active-nav-link"));
                     this.classList.add("active-nav-link");
                 });
@@ -373,52 +373,64 @@
                 <h2 class="text-4xl font-bold mono tracking-tight text-on-surface">Featured Projects</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-                <div class="md:col-span-8 group relative bg-surface-container-low rounded-lg overflow-hidden h-[500px]">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
-                    <img alt="Cybersecurity lab"
-                        class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 opacity-50"
-                        data-alt="Futuristic cybersecurity operations center with multiple monitors showing glowing green lines of code and network topology maps"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXC9FRwZ7yXnBeS68OkIDrzzOq7rgq1d-DUqu6U3GmH7GPrwzTlIS2ZpZ25DBw06lqA3bn9Ei27afMedb7d64Fof7bQNeDdkmUfnFumqbJYG3D3tra3ngYQ4IlThjuUA7mXHhCFIefzhA24cKFV9s6-06bACoJAznh1Onx1hrdTwbgGCI4mAf2ZcAWtKN7czMuOu_0CNBm-5WWF7lSOpTOzcwQnpgWATPJYE0_zGIn-DUHBvONo9uNjRpf6xpVKiDDxVKXmne7FxRj" />
-                    <div class="absolute bottom-0 left-0 p-8 z-20 w-full">
-                        <div class="flex items-center gap-2 mb-4">
-                            <span
-                                class="px-3 py-1 bg-[#0ea5e9] text-[#082f49] text-[10px] mono font-bold rounded-full">CORE
-                                PROJECT</span>
-                            <span class="text-on-surface/50 text-xs mono">2024</span>
+                <!-- Project 1: Self-Hosted SOC Triage -->
+                <div class="md:col-span-7 group relative bg-surface-container-low rounded-lg p-8 flex flex-col justify-between border border-surface-variant/40 hover:border-[#0ea5e9]/50 transition-all">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-[#0ea5e9] text-[#082f49] text-[10px] mono font-bold rounded-full">AI &amp; SOC AUTOMATION</span>
+                            <span class="text-on-surface/50 text-xs mono">2026</span>
                         </div>
-                        <h3 class="text-3xl font-bold mono mb-4">SIEM Home Lab &amp; Attack Simulation</h3>
-                        <p class="text-on-surface/70 mb-6 max-w-xl">
-                            Enterprise-grade Wazuh &amp; Splunk deployment managing a GOAD Active Directory environment.
-                            Conducted multi-vector attack simulations within isolated cyber ranges to validate detection
-                            rules.
+                        <h3 class="text-2xl font-bold mono mb-3 text-[#e5e2e1] group-hover:text-[#0ea5e9] transition-colors">
+                            Self-Hosted SOC Triage &amp; AI-Assisted Incident Triage
+                        </h3>
+                        <p class="text-on-surface/70 text-sm mb-6 leading-relaxed">
+                            Built an AI-assisted SOC triage pipeline integrating Wazuh, n8n, AbuseIPDB, Ollama, and Discord to automate alert enrichment, threat intelligence analysis, and real-time notifications. Designed with human-in-the-loop response suggestions and private-network security bindings.
                         </p>
-                        <div class="flex gap-4">
-                            <span class="text-[#0ea5e9] mono text-sm flex items-center gap-2">
-                                <span class="material-symbols-outlined text-sm">terminal</span> Deployment Verified
-                            </span>
-                            <span class="text-[#0ea5e9] mono text-sm flex items-center gap-2">
-                                <span class="material-symbols-outlined text-sm">security</span> 15+ Rules Written
-                            </span>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 bg-surface-container-highest rounded text-xs mono text-[#0ea5e9]">Wazuh</span>
+                            <span class="px-2.5 py-1 bg-surface-container-highest rounded text-xs mono text-[#0ea5e9]">n8n</span>
+                            <span class="px-2.5 py-1 bg-surface-container-highest rounded text-xs mono text-[#0ea5e9]">Ollama AI</span>
+                            <span class="px-2.5 py-1 bg-surface-container-highest rounded text-xs mono text-[#0ea5e9]">AbuseIPDB</span>
+                            <span class="px-2.5 py-1 bg-surface-container-highest rounded text-xs mono text-[#0ea5e9]">Discord API</span>
                         </div>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-surface-variant/30 pt-4">
+                        <span class="text-[#0ea5e9] mono text-xs flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">auto_awesome</span> Automated Enrichment &amp; Triage
+                        </span>
+                        <a href="https://github.com/KellyCalvin23/self-hosted-soc-triage" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-1.5 text-xs mono text-[#0ea5e9] hover:underline">
+                            <span>Repository</span>
+                            <span class="material-symbols-outlined text-sm">open_in_new</span>
+                        </a>
                     </div>
                 </div>
-                <div
-                    class="md:col-span-4 bg-surface-container-highest p-8 rounded-lg flex flex-col justify-between border-l-2 border-[#0ea5e9]/20">
+
+                <!-- Project 2: SIEM Home Lab & Attack Simulation -->
+                <div class="md:col-span-5 group relative bg-surface-container-low rounded-lg p-8 flex flex-col justify-between border border-surface-variant/40 hover:border-[#0ea5e9]/50 transition-all">
                     <div>
-                        <h4 class="text-xl font-bold mono mb-4">Active Directory Security</h4>
-                        <p class="text-on-surface/60 text-sm leading-relaxed mb-8">
-                            Hardening Windows Server environments against lateral movement, Kerberoasting, and Golden
-                            Ticket attacks using GPOs and tiered administration models.
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-[#0ea5e9]/20 text-[#0ea5e9] text-[10px] mono font-bold rounded-full">SIEM &amp; BLUE TEAM</span>
+                            <span class="text-on-surface/50 text-xs mono">2024–2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold mono mb-3 text-[#e5e2e1] group-hover:text-[#0ea5e9] transition-colors">
+                            SIEM Home Lab &amp; Attack Simulation
+                        </h3>
+                        <p class="text-on-surface/70 text-sm mb-6 leading-relaxed">
+                            Distributed Wazuh &amp; Splunk environment managing a GOAD (Game of Active Directory) infrastructure. Simulated multi-vector offensive techniques in isolated cyber ranges to engineer custom detection rules and evaluate blue team coverage.
                         </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 bg-surface-container-highest rounded text-xs mono">Wazuh</span>
+                            <span class="px-2.5 py-1 bg-surface-container-highest rounded text-xs mono">Splunk</span>
+                            <span class="px-2.5 py-1 bg-surface-container-highest rounded text-xs mono">GOAD</span>
+                            <span class="px-2.5 py-1 bg-surface-container-highest rounded text-xs mono">Active Directory</span>
+                        </div>
                     </div>
-                    <div class="space-y-4">
-                        <div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
-                            <div class="h-full bg-[#0ea5e9] w-[85%]"></div>
-                        </div>
-                        <div class="flex justify-between mono text-[10px] text-on-surface/50">
-                            <span>THREAT DETECTION RATE</span>
-                            <span class="text-[#0ea5e9]">85%</span>
-                        </div>
+                    <div class="flex items-center justify-between border-t border-surface-variant/30 pt-4">
+                        <span class="text-[#0ea5e9] mono text-xs flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">security</span> 15+ Custom Rules
+                        </span>
+                        <span class="text-on-surface/50 mono text-xs">Deployment Verified</span>
                     </div>
                 </div>
             </div>
