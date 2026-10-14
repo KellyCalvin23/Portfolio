@@ -250,7 +250,7 @@
                         class="inline-block px-8 py-4 bg-gradient-to-r from-primary-fixed-dim to-primary-container text-on-primary-fixed font-bold rounded-lg shadow-[0_0_30px_rgba(14,165,233,0.3)] hover:scale-105 transition-transform active:scale-95 mono bg-gradient-to-r from-[#0284c7] to-[#0ea5e9] text-[#f0f9ff]">
                         Explore Projects
                     </a>
-                    <a href="cv/Kelly-Kayinamura_CV.pdf" target="_blank" rel="noopener noreferrer"
+                    <a href="cv/Kelly-Kayinamura.pdf" target="_blank" rel="noopener noreferrer"
                         class="inline-block px-8 py-4 bg-surface-container-highest text-[#0ea5e9] font-bold rounded-lg hover:bg-surface-bright transition-colors mono">
                         Download CV
                     </a>
@@ -372,9 +372,9 @@
                 <h3 class="text-xs uppercase tracking-[0.3em] text-[#0ea5e9] mono mb-4">03 // Field Work</h3>
                 <h2 class="text-4xl font-bold mono tracking-tight text-on-surface">Featured Projects</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Project 1: Self-Hosted SOC Triage -->
-                <div class="md:col-span-7 group relative bg-surface-container-low rounded-lg p-8 flex flex-col justify-between border border-surface-variant/40 hover:border-[#0ea5e9]/50 transition-all">
+                <div class="group relative bg-surface-container-low rounded-lg p-8 flex flex-col justify-between border border-surface-variant/40 hover:border-[#0ea5e9]/50 transition-all">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="px-3 py-1 bg-[#0ea5e9] text-[#082f49] text-[10px] mono font-bold rounded-full">AI &amp; SOC AUTOMATION</span>
@@ -384,8 +384,24 @@
                             Self-Hosted SOC Triage &amp; AI-Assisted Incident Triage
                         </h3>
                         <p class="text-on-surface/70 text-sm mb-6 leading-relaxed">
-                            Built an AI-assisted SOC triage pipeline integrating Wazuh, n8n, AbuseIPDB, Ollama, and Discord to automate alert enrichment, threat intelligence analysis, and real-time notifications. Designed with human-in-the-loop response suggestions and private-network security bindings.
+                            Built an AI-assisted SOC triage pipeline integrating Wazuh, n8n, AbuseIPDB, Ollama, and Discord to automate alert enrichment, threat intelligence analysis, and real-time notifications.
                         </p>
+                        
+                        <div class="space-y-2.5 mb-6 text-xs text-on-surface/80">
+                            <div class="flex items-start gap-2">
+                                <span class="text-[#0ea5e9] mono mt-0.5">▸</span>
+                                <span><strong>Automated Triage:</strong> Alert normalization, severity filtering, source-IP validation, threat-intelligence enrichment, and AI-generated triage summaries.</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="text-[#0ea5e9] mono mt-0.5">▸</span>
+                                <span><strong>Security Controls:</strong> Authenticated webhooks, private-network service binding, environment-based secrets, and structured AI output validation.</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="text-[#0ea5e9] mono mt-0.5">▸</span>
+                                <span><strong>Human-in-the-Loop:</strong> Provides suggested incident responses for analyst review without taking automated actions against infrastructure.</span>
+                            </div>
+                        </div>
+
                         <div class="flex flex-wrap gap-2 mb-6">
                             <span class="px-2.5 py-1 bg-surface-container-highest rounded text-xs mono text-[#0ea5e9]">Wazuh</span>
                             <span class="px-2.5 py-1 bg-surface-container-highest rounded text-xs mono text-[#0ea5e9]">n8n</span>
@@ -394,9 +410,9 @@
                             <span class="px-2.5 py-1 bg-surface-container-highest rounded text-xs mono text-[#0ea5e9]">Discord API</span>
                         </div>
                     </div>
-                    <div class="flex items-center justify-between border-t border-surface-variant/30 pt-4">
+                    <div class="flex items-center justify-between border-t border-surface-variant/30 pt-4 mt-auto">
                         <span class="text-[#0ea5e9] mono text-xs flex items-center gap-2">
-                            <span class="material-symbols-outlined text-sm">auto_awesome</span> Automated Enrichment &amp; Triage
+                            <span class="material-symbols-outlined text-sm">auto_awesome</span> Open-Source Hardened
                         </span>
                         <a href="https://github.com/KellyCalvin23/self-hosted-soc-triage" target="_blank" rel="noopener noreferrer"
                             class="inline-flex items-center gap-1.5 text-xs mono text-[#0ea5e9] hover:underline">
@@ -407,28 +423,45 @@
                 </div>
 
                 <!-- Project 2: SIEM Home Lab & Attack Simulation -->
-                <div class="md:col-span-5 group relative bg-surface-container-low rounded-lg p-8 flex flex-col justify-between border border-surface-variant/40 hover:border-[#0ea5e9]/50 transition-all">
+                <div class="group relative bg-surface-container-low rounded-lg p-8 flex flex-col justify-between border border-surface-variant/40 hover:border-[#0ea5e9]/50 transition-all">
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <span class="px-3 py-1 bg-[#0ea5e9]/20 text-[#0ea5e9] text-[10px] mono font-bold rounded-full">SIEM &amp; BLUE TEAM</span>
+                            <span class="px-3 py-1 bg-[#0ea5e9]/20 text-[#0ea5e9] text-[10px] mono font-bold rounded-full">SIEM &amp; CYBER RANGE</span>
                             <span class="text-on-surface/50 text-xs mono">2024–2025</span>
                         </div>
-                        <h3 class="text-xl font-bold mono mb-3 text-[#e5e2e1] group-hover:text-[#0ea5e9] transition-colors">
-                            SIEM Home Lab &amp; Attack Simulation
+                        <h3 class="text-2xl font-bold mono mb-3 text-[#e5e2e1] group-hover:text-[#0ea5e9] transition-colors">
+                            Home Lab | SIEM Deployment &amp; Attack Simulation
                         </h3>
                         <p class="text-on-surface/70 text-sm mb-6 leading-relaxed">
-                            Distributed Wazuh &amp; Splunk environment managing a GOAD (Game of Active Directory) infrastructure. Simulated multi-vector offensive techniques in isolated cyber ranges to engineer custom detection rules and evaluate blue team coverage.
+                            Designed and deployed a distributed SIEM environment using Wazuh and Splunk for centralized log collection, threat detection, and blue team coverage analysis.
                         </p>
+                        
+                        <div class="space-y-2.5 mb-6 text-xs text-on-surface/80">
+                            <div class="flex items-start gap-2">
+                                <span class="text-[#0ea5e9] mono mt-0.5">▸</span>
+                                <span><strong>GOAD Simulation:</strong> Deployed Game of Active Directory cyber range to simulate advanced Active Directory attacks (Kerberoasting, Golden Ticket, lateral movement).</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="text-[#0ea5e9] mono mt-0.5">▸</span>
+                                <span><strong>Detection Engineering:</strong> Engineered custom detection rules in Wazuh, improving alert accuracy and validating detection coverage from a blue team perspective.</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="text-[#0ea5e9] mono mt-0.5">▸</span>
+                                <span><strong>Correlation &amp; Triage:</strong> Conducted multi-vector offensive techniques with end-to-end log correlation, threat detection, and forensic analysis.</span>
+                            </div>
+                        </div>
+
                         <div class="flex flex-wrap gap-2 mb-6">
                             <span class="px-2.5 py-1 bg-surface-container-highest rounded text-xs mono">Wazuh</span>
                             <span class="px-2.5 py-1 bg-surface-container-highest rounded text-xs mono">Splunk</span>
                             <span class="px-2.5 py-1 bg-surface-container-highest rounded text-xs mono">GOAD</span>
                             <span class="px-2.5 py-1 bg-surface-container-highest rounded text-xs mono">Active Directory</span>
+                            <span class="px-2.5 py-1 bg-surface-container-highest rounded text-xs mono">Sysmon</span>
                         </div>
                     </div>
-                    <div class="flex items-center justify-between border-t border-surface-variant/30 pt-4">
+                    <div class="flex items-center justify-between border-t border-surface-variant/30 pt-4 mt-auto">
                         <span class="text-[#0ea5e9] mono text-xs flex items-center gap-2">
-                            <span class="material-symbols-outlined text-sm">security</span> 15+ Custom Rules
+                            <span class="material-symbols-outlined text-sm">security</span> 15+ Custom Rules Engineered
                         </span>
                         <span class="text-on-surface/50 mono text-xs">Deployment Verified</span>
                     </div>
@@ -453,16 +486,22 @@
                         </div>
                         <h3 class="text-2xl font-bold mono">System Security Engineer</h3>
                         <p class="text-on-surface/60 font-medium mb-6">Shield Tech Hub</p>
-                        <ul class="space-y-4 text-on-surface/70 leading-relaxed">
+                        <ul class="space-y-3 text-on-surface/70 leading-relaxed text-sm">
                             <li class="flex gap-3">
-                                <span class="text-[#0ea5e9] mono">_</span>
-                                Orchestrating complex red/blue team exercises to identify cross-departmental security
-                                gaps.
+                                <span class="text-[#0ea5e9] mono font-bold">_</span>
+                                <span><strong class="text-on-surface/90">Collaborative Security Testing:</strong> Led red/blue team exercises, validated SIEM/SOAR detections, and translated attack findings into defensive controls.</span>
                             </li>
                             <li class="flex gap-3">
-                                <span class="text-[#0ea5e9] mono">_</span>
-                                Lead vulnerability assessments and automated patching pipelines for mission-critical
-                                servers.
+                                <span class="text-[#0ea5e9] mono font-bold">_</span>
+                                <span><strong class="text-on-surface/90">Defensive Improvement:</strong> Improved incident response playbooks and managed SOC deployments.</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-[#0ea5e9] mono font-bold">_</span>
+                                <span><strong class="text-on-surface/90">Vulnerability Assessments:</strong> Perform vulnerability assessments, penetration testing, and risk analysis on infrastructure and applications.</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-[#0ea5e9] mono font-bold">_</span>
+                                <span><strong class="text-on-surface/90">Tool Development:</strong> Built collaborative security automation tools and maintained a purple team testing toolkit.</span>
                             </li>
                         </ul>
                     </div>
@@ -474,15 +513,18 @@
                         </div>
                         <h3 class="text-2xl font-bold mono">Junior System Security Engineer</h3>
                         <p class="text-on-surface/60 font-medium mb-6">Shield Tech Hub</p>
-                        <ul class="space-y-4 text-on-surface/70 leading-relaxed">
+                        <ul class="space-y-3 text-on-surface/70 leading-relaxed text-sm">
                             <li class="flex gap-3">
-                                <span class="text-[#0ea5e9] mono">_</span>
-                                Assisted in the migration of legacy monitoring systems to modern cloud-native SIEM
-                                solutions.
+                                <span class="text-[#0ea5e9] mono font-bold">_</span>
+                                <span><strong class="text-on-surface/90">Blue Teaming:</strong> Develop and implement security measures to protect systems and networks.</span>
                             </li>
                             <li class="flex gap-3">
-                                <span class="text-[#0ea5e9] mono">_</span>
-                                Daily monitoring of endpoint alerts and initial triage of potential security incidents.
+                                <span class="text-[#0ea5e9] mono font-bold">_</span>
+                                <span><strong class="text-on-surface/90">Penetration Testing:</strong> Assist in vulnerability assessments and penetration testing to identify and remediate security weaknesses.</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-[#0ea5e9] mono font-bold">_</span>
+                                <span><strong class="text-on-surface/90">DevSecOps:</strong> Support the integration of security into the DevOps process.</span>
                             </li>
                         </ul>
                     </div>
@@ -491,35 +533,111 @@
         </section>
         <!-- Certifications & Volunteering -->
         <section class="py-24 px-6 max-w-7xl mx-auto reveal" id="certs">
-            <div class="grid md:grid-cols-2 gap-16">
-                <div>
-                    <h3 class="text-xs uppercase tracking-[0.3em] text-[#0ea5e9] mono mb-8">05 // Credentials</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-surface-container p-6 rounded-lg border-b border-[#0ea5e9]/30">
-                            <h4 class="mono font-bold text-sm">PJPT</h4>
-                            <p class="text-[10px] text-on-surface/50 mt-1 uppercase">TCM Security</p>
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-7">
+                    <h3 class="text-xs uppercase tracking-[0.3em] text-[#0ea5e9] mono mb-4">05 // Credentials</h3>
+                    <h2 class="text-4xl font-bold mono tracking-tight text-on-surface mb-8">Certifications</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- PNPT -->
+                        <div class="bg-surface-container p-5 rounded-lg border-b-2 border-[#0ea5e9] hover:bg-surface-container-high hover:-translate-y-1 transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="px-2 py-0.5 bg-[#0ea5e9]/10 text-[#0ea5e9] text-[10px] mono font-bold rounded">2026</span>
+                                <span class="text-[10px] text-on-surface/50 mono">TCM Security</span>
+                            </div>
+                            <h4 class="mono font-bold text-base text-[#e5e2e1]">PNPT</h4>
+                            <p class="text-xs text-on-surface/70 mt-1">Practical Network Penetration Tester</p>
                         </div>
-                        <div class="bg-surface-container p-6 rounded-lg border-b border-[#0ea5e9]/30">
-                            <h4 class="mono font-bold text-sm">Dante Pro Labs</h4>
-                            <p class="text-[10px] text-on-surface/50 mt-1 uppercase">HackTheBox</p>
+
+                        <!-- CCEP -->
+                        <div class="bg-surface-container p-5 rounded-lg border-b-2 border-[#0ea5e9] hover:bg-surface-container-high hover:-translate-y-1 transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="px-2 py-0.5 bg-[#0ea5e9]/10 text-[#0ea5e9] text-[10px] mono font-bold rounded">2026</span>
+                                <span class="text-[10px] text-on-surface/50 mono">Red Team Leaders</span>
+                            </div>
+                            <h4 class="mono font-bold text-base text-[#e5e2e1]">CCEP</h4>
+                            <p class="text-xs text-on-surface/70 mt-1">Certified Cybersecurity Educator Professional</p>
                         </div>
-                        <div class="bg-surface-container p-6 rounded-lg border-b border-[#0ea5e9]/30">
-                            <h4 class="mono font-bold text-sm">TryHackMe</h4>
-                            <p class="text-[10px] text-on-surface/50 mt-1 uppercase">Top 1% Rank</p>
+
+                        <!-- Dante Pro Labs -->
+                        <div class="bg-surface-container p-5 rounded-lg border-b-2 border-[#0ea5e9]/40 hover:bg-surface-container-high hover:-translate-y-1 transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="px-2 py-0.5 bg-surface-container-highest text-on-surface/70 text-[10px] mono font-bold rounded">2025</span>
+                                <span class="text-[10px] text-on-surface/50 mono">HackTheBox</span>
+                            </div>
+                            <h4 class="mono font-bold text-base text-[#e5e2e1]">Dante Pro Labs</h4>
+                            <p class="text-xs text-on-surface/70 mt-1">Advanced Penetration Testing & Active Directory</p>
                         </div>
-                        <div class="bg-surface-container p-6 rounded-lg border-b border-[#0ea5e9]/30">
-                            <h4 class="mono font-bold text-sm">Ambassador</h4>
-                            <p class="text-[10px] text-on-surface/50 mt-1 uppercase">Wazuh Community</p>
+
+                        <!-- PJPT -->
+                        <div class="bg-surface-container p-5 rounded-lg border-b-2 border-[#0ea5e9]/40 hover:bg-surface-container-high hover:-translate-y-1 transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="px-2 py-0.5 bg-surface-container-highest text-on-surface/70 text-[10px] mono font-bold rounded">2025</span>
+                                <span class="text-[10px] text-on-surface/50 mono">TCM Security</span>
+                            </div>
+                            <h4 class="mono font-bold text-base text-[#e5e2e1]">PJPT</h4>
+                            <p class="text-xs text-on-surface/70 mt-1">Practical Junior Penetration Tester</p>
+                        </div>
+
+                        <!-- Cyber Defense -->
+                        <div class="bg-surface-container p-5 rounded-lg border-b-2 border-[#0ea5e9]/40 hover:bg-surface-container-high hover:-translate-y-1 transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="px-2 py-0.5 bg-surface-container-highest text-on-surface/70 text-[10px] mono font-bold rounded">2024</span>
+                                <span class="text-[10px] text-on-surface/50 mono">TryHackMe</span>
+                            </div>
+                            <h4 class="mono font-bold text-base text-[#e5e2e1]">Cyber Defense</h4>
+                            <p class="text-xs text-on-surface/70 mt-1">Blue Team Operations & Incident Triage</p>
+                        </div>
+
+                        <!-- Lead Trainer -->
+                        <div class="bg-surface-container p-5 rounded-lg border-b-2 border-[#0ea5e9] hover:bg-surface-container-high hover:-translate-y-1 transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="px-2 py-0.5 bg-[#0ea5e9]/10 text-[#0ea5e9] text-[10px] mono font-bold rounded">2026</span>
+                                <span class="text-[10px] text-on-surface/50 mono">Cyberhub</span>
+                            </div>
+                            <h4 class="mono font-bold text-base text-[#e5e2e1]">Lead Trainer</h4>
+                            <p class="text-xs text-on-surface/70 mt-1">Cyber Defense & Incident Response</p>
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-col justify-center bg-[#0ea5e9]/5 p-8 rounded-lg border border-[#0ea5e9]/10">
-                    <span class="material-symbols-outlined text-[#0ea5e9] text-5xl mb-6">volunteer_activism</span>
-                    <h3 class="text-2xl font-bold mono mb-4">Community Impact</h3>
-                    <p class="text-on-surface/70 leading-relaxed italic">
-                        "As a Wazuh Ambassador, I actively contribute to documentation and support new practitioners in
-                        establishing robust open-source security monitoring environments."
-                    </p>
+
+                <!-- Community Impact / Volunteering -->
+                <div class="lg:col-span-5 bg-surface-container-low p-8 rounded-lg border border-[#0ea5e9]/20 flex flex-col justify-between self-stretch">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="material-symbols-outlined text-[#0ea5e9] text-3xl">volunteer_activism</span>
+                            <div>
+                                <h3 class="text-xl font-bold mono text-[#e5e2e1]">Community &amp; Leadership</h3>
+                                <p class="text-[11px] mono text-[#0ea5e9]">Volunteering &amp; Mentorship</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="border-l-2 border-[#0ea5e9] pl-4">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h4 class="font-bold mono text-sm text-[#0ea5e9]">Wazuh Community Ambassador</h4>
+                                    <span class="mono text-[10px] text-on-surface/50">2026 — PRESENT</span>
+                                </div>
+                                <p class="text-xs text-on-surface/70 leading-relaxed">
+                                    Representing the Wazuh open-source community in Rwanda. Guiding practitioners through SIEM deployment, rule tuning, troubleshooting, and best practices for enterprise monitoring.
+                                </p>
+                            </div>
+
+                            <div class="border-l-2 border-[#0ea5e9]/50 pl-4">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h4 class="font-bold mono text-sm text-[#0ea5e9]">Lead Trainer — NCSA Cyberhub</h4>
+                                    <span class="mono text-[10px] text-on-surface/50">2026</span>
+                                </div>
+                                <p class="text-xs text-on-surface/70 leading-relaxed">
+                                    Delivering instructor-led training on Cyber Defense and Incident Response. Facilitating hands-on cybersecurity labs that simulate real-world attack detection and response scenarios.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-surface-variant/30 flex items-center justify-between text-xs mono text-on-surface/50 mt-6">
+                        <span>Open-Source &amp; Training</span>
+                        <span class="text-[#0ea5e9]">Rwanda / Global</span>
+                    </div>
                 </div>
             </div>
         </section>
